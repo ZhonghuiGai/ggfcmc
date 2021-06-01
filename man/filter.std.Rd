@@ -2,7 +2,7 @@
 % Please edit documentation in R/filter.std.R
 \name{filter.std}
 \alias{filter.std}
-\title{Fiter data}
+\title{Filter data step 1}
 \usage{
 filter.std(data, min.std = 0)
 }
@@ -15,7 +15,7 @@ filter.std(data, min.std = 0)
 a filted data
 }
 \description{
-Fiter data
+Filter data step 1
 }
 \author{
 Zhonghui Gai

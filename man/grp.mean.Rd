@@ -2,20 +2,24 @@
 % Please edit documentation in R/grp.mean.R
 \name{grp.mean}
 \alias{grp.mean}
-\title{Make a mean dataframe by group from data with concurrent controls}
+\title{Make a mean dataframe by group from data with concurrent controls
+step 2}
 \usage{
-grp.mean(data, group, filter.std = TRUE)
+grp.mean(data, group, filter.std = TRUE, scale = TRUE)
 }
 \arguments{
 \item{data}{original data}
 
-\item{group}{a factor with grouping information}
+\item{group}{a factor name with grouping information}
 
-\item{filter.std}{a logical vevtor, default value is TRUE.}
+\item{filter.std}{a logical vector, default value is TRUE.}
+
+\item{scale}{a logical vector, default value is TRUE.}
 }
 \value{
 the grp.mean dataframe
 }
 \description{
 Make a mean dataframe by group from data with concurrent controls
+step 2
 }

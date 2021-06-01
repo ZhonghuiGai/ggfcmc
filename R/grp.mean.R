@@ -1,14 +1,18 @@
 #' Make a mean dataframe by group from data with concurrent controls
+#' step 2
 #'
 #' @param data original data
-#' @param group a factor with grouping information
-#' @param filter.std a logical vevtor, default value is TRUE.
+#' @param group a factor name with grouping information
+#' @param filter.std a logical vector, default value is TRUE.
+#' @param scale a logical vector, default value is TRUE.
 #'
 #' @return the grp.mean dataframe
 #' @export
 #'
 
-grp.mean <- function(data, group, filter.std = TRUE){
+grp.mean <- function(data, group,
+                     filter.std = TRUE,
+                     scale = TRUE){
   f <- formula(paste0(".", "~", "group"))
   grp.m <- aggregate(f, data = data, FUN = mean)
   rownames(grp.m) <- grp.m[, 1]
@@ -17,6 +21,9 @@ grp.mean <- function(data, group, filter.std = TRUE){
   grp.m <- as.data.frame(grp.m)
   if (filter.std) {
     grp.m <- filter.std(grp.m)
+  }
+  if (scale) {
+    grp.m <- t(scale(t(grp.m)))
   }
   return(grp.m)
 }

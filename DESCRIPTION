@@ -1,10 +1,11 @@
 Package: ggfcmc
 Type: Package
-Title: Time seris analysis using cmean
+Title: Time seris analysis using cmeans
 Version: 0.0.1
 Author: ZH Gai
 Maintainer: ZH Gai <zhgai@aliyun.com>
-Description: Time seris analysis using cmean.
+Description: Time seris analysis using cmeans.
+Depends: R (>= 3.6.0), e1071
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

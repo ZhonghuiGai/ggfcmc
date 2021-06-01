@@ -1,4 +1,4 @@
-#' Filter data
+#' Filter data step 1
 #'
 #' @param data dataframe
 #' @param min.std min standard deviation
