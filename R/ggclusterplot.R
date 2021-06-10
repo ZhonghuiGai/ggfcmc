@@ -11,14 +11,19 @@
 #' element_text element_blank scale_colour_gradientn
 #' @author Zhonghui Gai
 #' @examples
-ggclusterplot <- function(data, fcm){
+ggclusterplot <- function(data, fcm, ncol){
   fcm.df <- data.frame(data) # scaled original mean data
   fcm.df$variables <- row.names(fcm.df)
-  fcm.df$cluster <- fcmc$cluster # bind cluster assinment
+  cs <- cluster.size(fcm)
+  n <- sapply(fcm$cluster, function(x){
+    cs[x]
+  })
+  # bind cluster assinment
+  fcm.df$cluster <- paste0("cluster ", fcm$cluster, "\n", "n = ", n)
   #fetch the membership for each variable/top scoring cluster facet_wrap
   fcm.df$membership <-
     sapply(1:length(fcm.df$cluster), function(row){
-      clust <- fcm.df$cluster[row]
+      clust <- fcm$cluster[row]
       fcmc$membership[row,clust]
     })
   cluster.df <- melt(data = fcm.df,
@@ -34,6 +39,25 @@ ggclusterplot <- function(data, fcm){
     # color="black", inherit.aes=FALSE) +
     xlab(NULL) +
     ylab("Relative abundance") +
-    facet_wrap(vars(cluster), scales = "free_y", ncol = 4)
+    facet_wrap(vars(cluster), scales = "free_y", ncol = ncol) +
+    theme(panel.grid = element_blank(),
+          panel.background = element_rect(color = 'gray60',
+                                          fill = 'transparent', size = 1),
+          axis.title = element_text(size = 14, face = "bold"),
+          axis.text = element_text(size = 12, face = "bold"),
+          axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+          strip.text = element_text(face = "bold", color = "black",
+                                    size = 8),
+          strip.background = element_rect(fill = "gray90", colour = "gray60"),
+          legend.title.align = 0.5,
+          legend.text = element_text(size = 10, face = "bold"),
+          legend.title = element_text(size = 10, face = "bold"),
+          strip.switch.pad.wrap = unit(5, "cm"))
   return(p)
+}
+
+cluster.size <- function(fcm){
+  cs <- fcm$size
+  names(cs) <- 1:length(cs)
+  return(cs)
 }

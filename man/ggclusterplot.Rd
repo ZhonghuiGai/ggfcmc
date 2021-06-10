@@ -4,7 +4,7 @@
 \alias{ggclusterplot}
 \title{Draw the cluster plots}
 \usage{
-ggclusterplot(data, fcm)
+ggclusterplot(data, fcm, ncol)
 }
 \arguments{
 \item{data}{scaled original mean data created by grp.mean function.}
