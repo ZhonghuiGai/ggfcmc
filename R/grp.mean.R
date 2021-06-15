@@ -25,6 +25,7 @@ grp.mean <- function(data, group,
   if (scale) {
     grp.m <- t(scale(t(grp.m)))
   }
+  class(grp.m) <- c("grp.mean", "matrix", "array")
   return(grp.m)
 }
 
