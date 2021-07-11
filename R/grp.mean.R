@@ -8,7 +8,9 @@
 #'
 #' @return the grp.mean dataframe
 #' @export
-#'
+#' @example
+#' data <- read.csv("genus.Syn.csv", header = T, row.names = 1)
+#' genus.syn.mean <- grp.mean(data, "group")
 
 grp.mean <- function(data, group,
                      filter.std = TRUE,

@@ -2,6 +2,7 @@
 
 export(fcmc.center.heatmap)
 export(fcmc.df)
+export(fcmcPCA)
 export(filter.std)
 export(ggcenterplot)
 export(ggclusterplot)

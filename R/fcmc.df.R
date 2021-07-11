@@ -31,6 +31,6 @@ fcmc.df <- function(data.mean, fcmc, write = TRUE){
   if (write) {
     write.table(df, file = "mean.cluster.result.txt", sep = "\t")
   }else{
-    print(df)
+    return(df)
   }
 }

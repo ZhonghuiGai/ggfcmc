@@ -12,7 +12,7 @@
 #' @author Zhonghui Gai
 #' @importFrom e1071 cmeans
 #' @examples
-#' ggfcmc(genus.syn.mean, centers = 8, m = mestimate(genus.syn.mean))
+#' fcmc <- ggfcmc(genus.syn.mean, centers = 8, m = mestimate(genus.syn.mean))
 ggfcmc <- function (df, centers, m, ...){
   cm <- cmeans(df, centers = centers, method = "cmeans", m = m, ...)
   return(cm)

@@ -23,7 +23,7 @@ and rows to observations.}
 Function for soft clustering based on fuzzy c-means.
 }
 \examples{
-ggfcmc(genus.syn.mean, centers = 8, m = mestimate(genus.syn.mean))
+fcmc <- ggfcmc(genus.syn.mean, centers = 8, m = mestimate(genus.syn.mean))
 }
 \author{
 Zhonghui Gai
