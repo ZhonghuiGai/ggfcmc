@@ -1,10 +1,11 @@
-#' Drow heatmap of the correlation of centers about the fcmc result
+#' Draw heat map of the correlation of centers about the fcmc result
 #'
 #' @param data the fcmc$centers matrix
 #'
 #' @return
 #' @export
 #'
+#' @author Zhonghui Gai
 #' @examples
 #' a ggfcmc result
 #' fcmc.center.heatmap(t(fcmc$centers))
